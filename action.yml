@@ -1,26 +1,26 @@
-name: 'Terraform PR Commenter (Jimdo)'
-description: 'Adds opinionated comments to a PR from Terraform fmt/init/plan output'
-author: 'Jimdo'
+name: "Terraform PR Commenter (Jimdo)"
+description: "Adds opinionated comments to a PR from Terraform fmt/init/plan output"
+author: "Jimdo"
 branding:
-  icon: 'git-pull-request'
-  color: 'purple'
+  icon: "git-pull-request"
+  color: "purple"
 inputs:
   commenter_type:
-    description: 'The type of comment. Options: [fmt, init, plan]'
+    description: "The type of comment. Options: [fmt, init, plan]"
     required: true
   commenter_input:
-    description: 'The comment to post from a previous step output'
+    description: "The file to post from a previous step output"
     required: true
   commenter_exitcode:
-    description: 'The exit code from a previous step output'
+    description: "The exit code from a previous step output"
     required: true
   commenter_comment:
-    description: 'An optional comment to add to the headline.'
+    description: "An optional comment to add to the headline."
     required: false
-    default: ''
+    default: ""
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: "docker"
+  image: "Dockerfile"
   args:
     - ${{ inputs.commenter_type }}
     - ${{ inputs.commenter_input }}

@@ -32,7 +32,7 @@ comment="$4"
 # Arg 1 is command
 COMMAND=$1
 # Arg 2 is input. We strip ANSI colours.
-INPUT=$(echo "$2" | sed 's/\x1b\[[0-9;]*m//g')
+INPUT=$(cat "$2" | sed 's/\x1b\[[0-9;]*m//g')
 # Arg 3 is the Terraform CLI exit code
 EXIT_CODE=$3
 
